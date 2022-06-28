@@ -35,6 +35,17 @@ func (nn *NeuralNet) Train(x, y *mat.Dense) error {
 			param[i] = randGen.Float64()
 		}
 	}
+	output := new(mat.Dense)
+
+	if err := nn.BackPropagate(x, y, wHidden, bHidden, wOut, bOut, output); err != nil {
+		return err
+	}
+
+	// Определяем обученную сеть.
+	nn.WHidden = wHidden
+	nn.BHidden = bHidden
+	nn.WOut = wOut
+	nn.BOut = bOut
 
 	return nil
 }

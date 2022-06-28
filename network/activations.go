@@ -15,3 +15,11 @@ func ReLUPrime(x float64) float64 {
 		return 0
 	}
 }
+
+func Linear(x float64) float64 {
+	return x
+}
+
+func LinearPrime(x float64) float64 {
+	return 1
+}
